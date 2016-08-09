@@ -74,6 +74,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D36BC12A1D5A293C00BC4BFF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D36BC12C1D5A294C00BC4BFF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D3FAC2001D5A253300D35E12 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D36BC12D1D5A295D00BC4BFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D3FAC2021D5A253300D35E12 /* Main.storyboard */,
+				D3FAC2071D5A253300D35E12 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D36BC12E1D5A297A00BC4BFF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D3FAC1FE1D5A253300D35E12 /* AppDelegate.swift */,
+				D3FAC2051D5A253300D35E12 /* Assets.xcassets */,
+				D3FAC20A1D5A253300D35E12 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		D3FAC1F21D5A253200D35E12 = {
 			isa = PBXGroup;
 			children = (
@@ -97,12 +131,10 @@
 		D3FAC1FD1D5A253300D35E12 /* MusicVideo */ = {
 			isa = PBXGroup;
 			children = (
-				D3FAC1FE1D5A253300D35E12 /* AppDelegate.swift */,
-				D3FAC2001D5A253300D35E12 /* ViewController.swift */,
-				D3FAC2021D5A253300D35E12 /* Main.storyboard */,
-				D3FAC2051D5A253300D35E12 /* Assets.xcassets */,
-				D3FAC2071D5A253300D35E12 /* LaunchScreen.storyboard */,
-				D3FAC20A1D5A253300D35E12 /* Info.plist */,
+				D36BC12E1D5A297A00BC4BFF /* Supporting Files */,
+				D36BC12A1D5A293C00BC4BFF /* Model */,
+				D36BC12D1D5A295D00BC4BFF /* View */,
+				D36BC12C1D5A294C00BC4BFF /* Controller */,
 			);
 			path = MusicVideo;
 			sourceTree = "<group>";
@@ -484,6 +516,7 @@
 				D3FAC2251D5A253300D35E12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D3FAC2261D5A253300D35E12 /* Build configuration list for PBXNativeTarget "MusicVideoTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +525,7 @@
 				D3FAC2281D5A253300D35E12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D3FAC2291D5A253300D35E12 /* Build configuration list for PBXNativeTarget "MusicVideoUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +534,7 @@
 				D3FAC22B1D5A253300D35E12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
