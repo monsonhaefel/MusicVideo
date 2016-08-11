@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var videos = [Videos]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,18 +31,39 @@ class ViewController: UIViewController {
 
 
 
-    func didLoadData(result:String){
+    func didLoadData(videos:[Videos]){
         
-        let alert = UIAlertController(title: (result), message: nil, preferredStyle: .Alert)
+        self.videos = videos
         
-        let okAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
-            // do something
+        // this is best if you don't care to display the index
+        for item in videos {
+            print("name = \(item.vName)")
         }
         
-        alert.addAction(okAction)
-        self.presentViewController(alert, animated: true, completion: nil)
+        // this is the best way if you want to display the index
+        for (index, item) in videos.enumerate() {
+            print("\(index) name = \(item.vName)")
+        }
+        
+        /*  Somewhat old way: The below is the same as the above
+         for i in 0..<videos.count {
+            let video = videos[i]
+            print("\(index) name = \(item.vName)")
+         }
+         */
+        
+        /*  Old way: The below is the same as the above
+         for var i = 0; i < videos.count; i++ {
+            let video = videos[i]
+            print("\(index) name = \(item.vName)")
+         }
+         */
+        
+        
         
     }
+    
+
 
 
 }

@@ -9,7 +9,8 @@
 import Foundation
 
 class APIManager{
-    func loadData(urlString:String, completion: (result:String) -> Void) {
+    
+    func loadData(urlString:String, completion: (videos:[Videos]) -> Void) {
         
         let config = NSURLSessionConfiguration.ephemeralSessionConfiguration()
         
@@ -23,9 +24,8 @@ class APIManager{
             (data, response, error) -> Void in
             
             if error != nil {
-                dispatch_async(dispatch_get_main_queue()) {
-                    completion(result: (error!.localizedDescription))
-                }
+                print(error!.localizedDescription)
+                
             } else {
                 
                 //Added for JSONSerialization
@@ -36,21 +36,28 @@ class APIManager{
                         Converts the NSData into a JSON Object and cast it to a Dictionary. */
                     
                     if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
-                        as? JSONDictionary {
+                        as? JSONDictionary, feed = json["feed"] as? JSONDictionary, entries = feed["entry"] as? JSONArray {
                         
-                        print(json)
+                        var videos = [Videos]()
+                        for entry in entries {
+                            let entry = Videos(data: entry as! JSONDictionary)
+                            videos.append(entry)
+                        }
+                        
+                        let i = videos.count
+                        print("iTunesApiManager - total count ---> \(i)")
+                        print(" ")
                         
                         let priority = DISPATCH_QUEUE_PRIORITY_HIGH
                         dispatch_async(dispatch_get_global_queue(priority, 0)) {
                             dispatch_async(dispatch_get_main_queue()){
-                                completion(result: "JSONSerialization Successful")
+                                completion(videos: videos)
                             }
                         }
                     }
                 } catch {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        completion(result: "error in NSJSONSerialization")
-                    }
+                    print("error in NSJSONSerialization")
+                    
                 }
                 // End of JSONSerialization
             }
