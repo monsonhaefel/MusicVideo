@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         default:return
         }
         
-        NSNotificationCenter.defaultCenter().postNotificationName("ReachStatusChanged", object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName(REACH_STATUS_CHANGED, object: nil)
     }
 
     func applicationWillResignActive(application: UIApplication) {

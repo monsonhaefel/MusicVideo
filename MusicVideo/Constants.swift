@@ -17,3 +17,5 @@ let WIFI = "WIFI Available"
 let NOACCESS = "No Internet Access"
 
 let WWAN = "Cellular Access Avaiable"
+
+let REACH_STATUS_CHANGED = "ReachStatusChanged"
