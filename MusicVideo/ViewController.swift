@@ -8,22 +8,26 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var videos = [Videos]()
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var displayLabel: UILabel!
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.dataSource = self
+        tableView.delegate = self
+        
         //Observer for network status changed as reported by AppDelegate
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.reachabilityStatusChanged), name: REACH_STATUS_CHANGED, object: nil)
         
         //Call API
         let api = APIManager()
-        api.loadData("http://itunes.apple.com/us/rss/topmusicvideos/limit=10/json", completion: didLoadData)
+        api.loadData("http://itunes.apple.com/us/rss/topmusicvideos/limit=50/json", completion: didLoadData)
         
         reachabilityStatusChanged()
 
@@ -43,32 +47,13 @@ class ViewController: UIViewController {
         
         self.videos = videos
         
-        // this is best if you don't care to display the index
-        for item in videos {
-            print("name = \(item.vName)")
-        }
-        
-        // this is the best way if you want to display the index
+        // print out to console
         for (index, item) in videos.enumerate() {
             print("\(index) name = \(item.vName)")
         }
         
-        /*  Somewhat old way: The below is the same as the above
-         for i in 0..<videos.count {
-            let video = videos[i]
-            print("\(index) name = \(item.vName)")
-         }
-         */
-        
-        /*  Old way: The below is the same as the above
-         for var i = 0; i < videos.count; i++ {
-            let video = videos[i]
-            print("\(index) name = \(item.vName)")
-         }
-         */
-        
-        
-        
+        tableView.reloadData()
+
     }
     
     func reachabilityStatusChanged(){
@@ -93,6 +78,29 @@ class ViewController: UIViewController {
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: REACH_STATUS_CHANGED, object: nil)
     }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return videos.count
+    }
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        
+        let video = videos[indexPath.row]
+        
+        cell.textLabel?.text = ("\(indexPath.row + 1)")
+        cell.detailTextLabel?.text = video.vName
+        
+        
+        return cell
+    }
+
 
 
 }
