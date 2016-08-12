@@ -7,20 +7,43 @@
 //
 
 import UIKit
+var reachability : Reachability?
+var reachabilityStatus = WIFI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var internetCheck : Reachability?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        /* This is an alternative to deactivating the cache in the pinfo file. The use of the pinfo file is prefered.
- 
-        NSURLCache.setSharedURLCache(NSURLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil))
-        */
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.reachabilityChanged(_:)), name: kReachabilityChangedNotification, object: nil)
+        
+        internetCheck = Reachability.reachabilityForInternetConnection()
+        internetCheck?.startNotifier()
+        
         return true
+    }
+    
+    func reachabilityChanged(notification: NSNotification) {
+        reachability = notification.object as? Reachability
+        statusChangedWithReachability(reachability!)
+    }
+    
+    func statusChangedWithReachability(currentReachabilityStatus: Reachability){
+        
+        let networkStatus: NetworkStatus = currentReachabilityStatus.currentReachabilityStatus()
+        
+        switch networkStatus.rawValue {
+        case NotReachable.rawValue : reachabilityStatus = NOACCESS
+        case ReachableViaWiFi.rawValue : reachabilityStatus = WIFI
+        case ReachableViaWWAN.rawValue : reachabilityStatus = WWAN
+        default:return
+        }
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("ReachStatusChanged", object: nil)
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -43,6 +66,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        
+        // Remove the notification observer before the application exits
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: kReachabilityChangedNotification, object: nil)
+        
     }
 
 

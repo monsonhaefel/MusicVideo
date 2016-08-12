@@ -33,6 +33,8 @@ class ViewController: UIViewController {
 
     func didLoadData(videos:[Videos]){
         
+        print(reachabilityStatus)
+        
         self.videos = videos
         
         // this is best if you don't care to display the index
