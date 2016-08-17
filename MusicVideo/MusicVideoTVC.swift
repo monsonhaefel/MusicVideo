@@ -123,6 +123,7 @@ class MusicVideoTVC: UITableViewController {
 
     private struct storyBoard {
         static let cellReuseIdentifier = "cell"
+        static let sequeIdentifier = "musicDetail"
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -170,14 +171,24 @@ class MusicVideoTVC: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == storyBoard.sequeIdentifier {
+            if let indexpath = tableView.indexPathForSelectedRow {
+                let video = videos[indexpath.row]
+                let dvc = segue.destinationViewController as! MusicVideoDetailVC
+                dvc.videos = video
+            }
+        }
+        
+        
     }
-    */
+    
 
 }

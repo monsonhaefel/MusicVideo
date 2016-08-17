@@ -19,3 +19,5 @@ let NOACCESS = "No Internet Access"
 let WWAN = "Cellular Access Avaiable"
 
 let REACH_STATUS_CHANGED = "ReachStatusChanged"
+
+let MUSIC_DETAIL_SEGUE = "musicDetail"
