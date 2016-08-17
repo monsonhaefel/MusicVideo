@@ -17,12 +17,17 @@ class MusicVideoTVC: UITableViewController {
         
         
         //Observer for network status changed as reported by AppDelegate
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.reachabilityStatusChanged), name: REACH_STATUS_CHANGED, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MusicVideoTVC.reachabilityStatusChanged), name: REACH_STATUS_CHANGED, object: nil)
+       
+        // Observe for prefered font change
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MusicVideoTVC.preferedFontChanged), name: UIContentSizeCategoryDidChangeNotification, object: nil)
         
         reachabilityStatusChanged()
 
     }
-
+    func preferedFontChanged(){
+        print("The prefered font has changed")
+    }
     
     func reachabilityStatusChanged(){
         
@@ -100,6 +105,7 @@ class MusicVideoTVC: UITableViewController {
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: REACH_STATUS_CHANGED, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIContentSizeCategoryDidChangeNotification, object: nil)
     }
     
 
