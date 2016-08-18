@@ -120,7 +120,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rights" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wh4-4r-2IG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rights" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wh4-4r-2IG">
                                 <rect key="frame" x="1" y="458" width="599" height="98"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="98" id="gaT-38-4FW"/>
@@ -137,17 +137,58 @@
                             <constraint firstItem="CDL-wp-PCR" firstAttribute="top" secondItem="4Jl-Va-Boz" secondAttribute="bottom" constant="1" id="F7i-KT-sfJ"/>
                             <constraint firstItem="4Jl-Va-Boz" firstAttribute="trailing" secondItem="Wh4-4r-2IG" secondAttribute="trailing" id="GHS-qP-OLO"/>
                             <constraint firstItem="S4p-6j-Jwj" firstAttribute="trailing" secondItem="Z4m-Vo-xTF" secondAttribute="trailingMargin" id="Hbq-98-fX6"/>
+                            <constraint firstItem="4Jl-Va-Boz" firstAttribute="centerX" secondItem="Z4m-Vo-xTF" secondAttribute="centerX" id="Hsc-9u-9Fj"/>
                             <constraint firstItem="GkP-8G-GNI" firstAttribute="top" secondItem="18u-Ot-SFd" secondAttribute="bottom" id="U04-T8-HWS"/>
                             <constraint firstItem="4Jl-Va-Boz" firstAttribute="leading" secondItem="Wh4-4r-2IG" secondAttribute="leading" id="UCF-nc-6E9"/>
                             <constraint firstItem="GkP-8G-GNI" firstAttribute="centerX" secondItem="Z4m-Vo-xTF" secondAttribute="centerX" id="g9R-mf-7j7"/>
                             <constraint firstAttribute="trailing" secondItem="4Jl-Va-Boz" secondAttribute="trailing" id="hgJ-5Z-G7H"/>
                             <constraint firstItem="CDL-wp-PCR" firstAttribute="leading" secondItem="Z4m-Vo-xTF" secondAttribute="leadingMargin" id="lsl-dS-bl9"/>
                             <constraint firstItem="GkP-8G-GNI" firstAttribute="centerX" secondItem="4Jl-Va-Boz" secondAttribute="centerX" id="mrd-Lt-maV"/>
+                            <constraint firstAttribute="trailing" secondItem="4Jl-Va-Boz" secondAttribute="trailing" id="pDP-M0-CnE"/>
                             <constraint firstItem="4Jl-Va-Boz" firstAttribute="top" secondItem="18u-Ot-SFd" secondAttribute="bottom" constant="68" id="qaW-3n-6EB"/>
+                            <constraint firstItem="ArB-eF-j5A" firstAttribute="top" secondItem="4Jl-Va-Boz" secondAttribute="bottom" constant="8" symbolic="YES" id="svD-Aa-7Yh"/>
                             <constraint firstItem="CDL-wp-PCR" firstAttribute="baseline" secondItem="S4p-6j-Jwj" secondAttribute="baseline" id="ydE-Xd-QbS"/>
                             <constraint firstItem="GkP-8G-GNI" firstAttribute="leading" secondItem="Z4m-Vo-xTF" secondAttribute="leadingMargin" constant="-13" id="yn8-sQ-M1t"/>
+                            <constraint firstItem="4Jl-Va-Boz" firstAttribute="top" secondItem="18u-Ot-SFd" secondAttribute="bottom" id="zWZ-fz-hoc"/>
                             <constraint firstItem="Wh4-4r-2IG" firstAttribute="bottom" secondItem="ArB-eF-j5A" secondAttribute="top" id="zhh-pm-KRZ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Hsc-9u-9Fj"/>
+                                <exclude reference="pDP-M0-CnE"/>
+                                <exclude reference="zWZ-fz-hoc"/>
+                                <exclude reference="svD-Aa-7Yh"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="subviews">
+                                <exclude reference="GkP-8G-GNI"/>
+                                <exclude reference="CDL-wp-PCR"/>
+                                <exclude reference="S4p-6j-Jwj"/>
+                                <exclude reference="Wh4-4r-2IG"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="U04-T8-HWS"/>
+                                <exclude reference="g9R-mf-7j7"/>
+                                <exclude reference="mrd-Lt-maV"/>
+                                <exclude reference="yn8-sQ-M1t"/>
+                                <exclude reference="GHS-qP-OLO"/>
+                                <include reference="Hsc-9u-9Fj"/>
+                                <exclude reference="UCF-nc-6E9"/>
+                                <exclude reference="hgJ-5Z-G7H"/>
+                                <include reference="pDP-M0-CnE"/>
+                                <exclude reference="qaW-3n-6EB"/>
+                                <include reference="zWZ-fz-hoc"/>
+                                <exclude reference="7sQ-DS-LK5"/>
+                                <exclude reference="F7i-KT-sfJ"/>
+                                <exclude reference="lsl-dS-bl9"/>
+                                <exclude reference="ydE-Xd-QbS"/>
+                                <exclude reference="3of-WG-sJE"/>
+                                <exclude reference="zhh-pm-KRZ"/>
+                                <include reference="svD-Aa-7Yh"/>
+                                <exclude reference="Hbq-98-fX6"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems>
                         <barButtonItem systemItem="play" id="LcH-0p-aaL">
@@ -168,7 +209,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sKQ-fL-epF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2636" y="586"/>
+            <point key="canvasLocation" x="2636" y="585"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mIW-Wh-6MP">
