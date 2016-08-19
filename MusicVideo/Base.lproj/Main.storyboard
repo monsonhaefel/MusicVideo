@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="1952" y="583"/>
         </scene>
-        <!--Table View Controller-->
+        <!--SettingsTVC-->
         <scene sceneID="vfx-y2-VCn">
             <objects>
-                <tableViewController id="PT5-Xi-LmZ" sceneMemberID="viewController">
+                <tableViewController id="PT5-Xi-LmZ" customClass="SettingsTVC" customModule="MusicVideo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="lgI-mY-crv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -109,7 +109,7 @@
                                                         <constraint firstAttribute="width" constant="121" id="E8v-Ve-WsS"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -133,7 +133,7 @@
                                                         <constraint firstAttribute="width" constant="105" id="P7h-n8-Fx6"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -157,11 +157,14 @@
                                                         <constraint firstAttribute="width" constant="101" id="0Nu-Yo-7iU"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BR2-UM-TPz">
                                                     <rect key="frame" x="535" y="26" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="touchIdSec:" destination="PT5-Xi-LmZ" eventType="valueChanged" id="5r7-PD-Xvq"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -189,7 +192,7 @@
                                                         <constraint firstAttribute="width" constant="255" id="wrR-5j-lcT"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -212,7 +215,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhO-4j-vIE">
                                                     <rect key="frame" x="8" y="8" width="584" height="75"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -250,6 +253,15 @@
                             <outlet property="delegate" destination="PT5-Xi-LmZ" id="DLX-zE-mAM"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="APICnt" destination="mhO-4j-vIE" id="HLs-UH-KOs"/>
+                        <outlet property="aboutDisplay" destination="3sh-NC-09Z" id="IHx-Mm-8ul"/>
+                        <outlet property="bestImageDisplay" destination="ii1-hR-k5a" id="XQy-ck-f25"/>
+                        <outlet property="feedbackDisplay" destination="9wg-Zd-Aj8" id="LSs-7F-2qA"/>
+                        <outlet property="securityDisplay" destination="OHO-2B-AUe" id="9g7-bL-Lsw"/>
+                        <outlet property="sliderCnt" destination="gdV-2u-Gct" id="NAF-Zg-MpH"/>
+                        <outlet property="touchId" destination="BR2-UM-TPz" id="B6X-Q2-0yV"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u82-I2-sAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
