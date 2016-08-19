@@ -32,11 +32,14 @@ class SettingsTVC: UITableViewController {
         
         touchId.on = NSUserDefaults.standardUserDefaults().boolForKey("SecSetting")
         
-        if(NSUserDefaults.standardUserDefaults().floatForKey("APICNT") != Float(0)){
+        if(NSUserDefaults.standardUserDefaults().objectForKey("APICNT") != nil){
             let theValue = NSUserDefaults.standardUserDefaults().objectForKey("APICNT") as! Int
             APICnt.text = "\(theValue)"
             sliderCnt.value = Float(theValue)
             
+        } else{
+            sliderCnt.value = 10.0
+            APICnt.text = ("\(Int(sliderCnt.value))")
         }
         
 
