@@ -119,6 +119,9 @@
                                                 <constraint firstItem="3sh-NC-09Z" firstAttribute="top" secondItem="3KH-GD-iYJ" secondAttribute="topMargin" constant="23" id="uqf-wo-DFW"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="2op-SB-9ch" kind="show" id="tHa-Nx-nSC"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="b0a-tG-2Lw">
                                         <rect key="frame" x="0.0" y="144" width="600" height="80"/>
@@ -160,7 +163,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BR2-UM-TPz">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BR2-UM-TPz">
                                                     <rect key="frame" x="535" y="26" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="touchIdSec:" destination="PT5-Xi-LmZ" eventType="valueChanged" id="5r7-PD-Xvq"/>
@@ -183,7 +186,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UZF-UM-9zo">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UZF-UM-9zo">
                                                     <rect key="frame" x="535" y="31" width="51" height="31"/>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Best Image Quality" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ii1-hR-k5a">
@@ -212,7 +215,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhO-4j-vIE">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhO-4j-vIE">
                                                     <rect key="frame" x="8" y="8" width="584" height="75"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -234,8 +237,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="gdV-2u-Gct">
+                                                <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="10" maxValue="200" translatesAutoresizingMaskIntoConstraints="NO" id="gdV-2u-Gct">
                                                     <rect key="frame" x="46" y="27" width="509" height="31"/>
+                                                    <connections>
+                                                        <action selector="valueChanged:" destination="PT5-Xi-LmZ" eventType="valueChanged" id="Q9a-rQ-56a"/>
+                                                    </connections>
                                                 </slider>
                                             </subviews>
                                             <constraints>
@@ -266,6 +272,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u82-I2-sAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1958" y="1289"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Igh-zw-GwN">
+            <objects>
+                <viewController id="2op-SB-9ch" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b3T-hq-DcE"/>
+                        <viewControllerLayoutGuide type="bottom" id="d0X-a8-L3c"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pjx-ky-EgL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © Richard Monson-Haefel 2016 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kit-aD-1Sx">
+                                <rect key="frame" x="137" y="487" width="327" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="8FH-ct-Ru6"/>
+                                    <constraint firstAttribute="width" constant="327" id="dsT-c7-ho1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RMH_Portrait_Square.large" translatesAutoresizingMaskIntoConstraints="NO" id="0mP-Gx-DYt">
+                                <rect key="frame" x="90" y="28" width="402" height="339"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Richard Monson-Haefel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DaT-K3-4UW">
+                                <rect key="frame" x="189" y="404" width="204" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Ywj-mk-Ek4"/>
+                                    <constraint firstAttribute="width" constant="204" id="oRj-CX-hGA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="0mP-Gx-DYt" secondAttribute="trailing" constant="88" id="2oh-V7-AhB"/>
+                            <constraint firstItem="0mP-Gx-DYt" firstAttribute="top" secondItem="b3T-hq-DcE" secondAttribute="bottom" constant="8" symbolic="YES" id="FRq-hD-ObL"/>
+                            <constraint firstItem="Kit-aD-1Sx" firstAttribute="centerX" secondItem="pjx-ky-EgL" secondAttribute="centerX" id="PQs-YJ-PHl"/>
+                            <constraint firstItem="d0X-a8-L3c" firstAttribute="top" secondItem="Kit-aD-1Sx" secondAttribute="bottom" constant="92" id="Zrq-ml-GEk"/>
+                            <constraint firstItem="0mP-Gx-DYt" firstAttribute="leading" secondItem="pjx-ky-EgL" secondAttribute="leadingMargin" constant="70" id="fCq-NV-Wgj"/>
+                            <constraint firstItem="Kit-aD-1Sx" firstAttribute="top" secondItem="DaT-K3-4UW" secondAttribute="bottom" constant="62" id="ghh-gq-3dk"/>
+                            <constraint firstItem="DaT-K3-4UW" firstAttribute="top" secondItem="0mP-Gx-DYt" secondAttribute="bottom" constant="37" id="ntw-pN-dpW"/>
+                            <constraint firstItem="0mP-Gx-DYt" firstAttribute="centerX" secondItem="DaT-K3-4UW" secondAttribute="centerX" id="rQy-Eq-4Wd"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K4H-mz-um0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2642" y="1290"/>
         </scene>
         <!--Music Video DetailVC-->
         <scene sceneID="Ifk-7B-0Yf">
@@ -424,4 +483,7 @@
             <point key="canvasLocation" x="1140" y="583"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="RMH_Portrait_Square.large" width="220" height="220"/>
+    </resources>
 </document>
