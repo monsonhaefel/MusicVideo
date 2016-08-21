@@ -38,6 +38,56 @@ class MusicVideoDetailVC: UIViewController {
         }
     }
 
+    @IBAction func socialMedia(sender: UIBarButtonItem) {
+        shareMedia()
+    }
+    
+    func shareMedia() {
+        
+        let textLine1 = "Have you had the opportunity to see this Music Video?"
+        let textLine2 = ("\(videos.vName) by \(videos.vArtist)")
+        let textLine3 = "Watch it and tell me what you think?"
+        let textLine4 = videos.vLinkToiTunes
+        let textLine5 = "(Shared with the Music Video App - Step It UP!)"
+        
+        let activityViewController : UIActivityViewController = UIActivityViewController(activityItems: [textLine1, textLine2, textLine3, textLine4,textLine5], applicationActivities: nil)
+        
+        //activityViewController.excludedActivityTypes =  [UIActivityTypeMail]
+        
+        
+        
+        //        activityViewController.excludedActivityTypes =  [
+        //            UIActivityTypePostToTwitter,
+        //            UIActivityTypePostToFacebook,
+        //            UIActivityTypePostToWeibo,
+        //            UIActivityTypeMessage,
+        //            UIActivityTypeMail,
+        //            UIActivityTypePrint,
+        //            UIActivityTypeCopyToPasteboard,
+        //            UIActivityTypeAssignToContact,
+        //            UIActivityTypeSaveToCameraRoll,
+        //            UIActivityTypeAddToReadingList,
+        //            UIActivityTypePostToFlickr,
+        //            UIActivityTypePostToVimeo,
+        //            UIActivityTypePostToTencentWeibo
+        //        ]
+        
+        activityViewController.completionWithItemsHandler = {
+            (activity, success, items, error) in
+            
+            if activity == UIActivityTypeMail {
+                print ("email selected")
+            }
+            
+        }
+        
+        self.presentViewController(activityViewController, animated: true, completion: nil)
+        
+        
+    }
+
+    
+    
     @IBAction func playVideo(sender: UIBarButtonItem) {
         
         let url = NSURL(string: videos.vVideoUrl)
